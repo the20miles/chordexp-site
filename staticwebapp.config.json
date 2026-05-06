@@ -14,8 +14,22 @@
   "navigationFallback": {
     "rewrite": "/it/index.html",
     "exclude": [
-      "/assets/**",
-      "*.{css,js,jpeg,jpg,png,svg,ico,webp,woff,woff2,ttf,xml,txt}"
+      "/assets/css/*",
+      "/assets/js/*",
+      "/assets/images/*",
+      "*.css",
+      "*.js",
+      "*.jpeg",
+      "*.jpg",
+      "*.png",
+      "*.svg",
+      "*.ico",
+      "*.webp",
+      "*.woff2",
+      "*.ttf",
+      "*.xml",
+      "*.txt",
+      "*.json"
     ]
   },
   "responseOverrides": {
