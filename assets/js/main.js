@@ -33,3 +33,32 @@ document.querySelectorAll('.fade-in').forEach(el => {
 document.querySelectorAll('.stagger > *').forEach((el, i) => {
   el.style.transitionDelay = `${i * 80}ms`;
 });
+
+// ── Language preference storage ────────────────────────
+document.querySelectorAll('[data-lang]').forEach(link => {
+  link.addEventListener('click', () => {
+    try { localStorage.setItem('chordexp_lang', link.dataset.lang); } catch(e) {}
+  });
+});
+
+// ── Cookie Consent ─────────────────────────────────────
+(function() {
+  const banner = document.getElementById('cookieBanner');
+  if (!banner) return;
+
+  try {
+    if (localStorage.getItem('chordexp_cookies')) return;
+  } catch(e) {}
+
+  setTimeout(() => { banner.hidden = false; }, 900);
+
+  document.getElementById('cookieAccept')?.addEventListener('click', () => {
+    try { localStorage.setItem('chordexp_cookies', 'all'); } catch(e) {}
+    banner.hidden = true;
+  });
+
+  document.getElementById('cookieDecline')?.addEventListener('click', () => {
+    try { localStorage.setItem('chordexp_cookies', 'necessary'); } catch(e) {}
+    banner.hidden = true;
+  });
+})();

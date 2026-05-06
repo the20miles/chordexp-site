@@ -1,0 +1,35 @@
+{
+  "routes": [
+    {
+      "route": "/it",
+      "redirect": "/it/",
+      "statusCode": 301
+    },
+    {
+      "route": "/es",
+      "redirect": "/es/",
+      "statusCode": 301
+    }
+  ],
+  "navigationFallback": {
+    "rewrite": "/it/index.html",
+    "exclude": [
+      "/assets/**",
+      "*.{css,js,jpeg,jpg,png,svg,ico,webp,woff,woff2,ttf,xml,txt}"
+    ]
+  },
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/it/index.html",
+      "statusCode": 404
+    }
+  },
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "SAMEORIGIN",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "mimeTypes": {
+    ".json": "application/json"
+  }
+}
